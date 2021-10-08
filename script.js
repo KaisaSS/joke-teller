@@ -114,3 +114,22 @@ function test() {
   });
 }
 test();
+
+// Get Jokes from joke API
+async function getJokes() {
+  let joke = "";
+  const apiUrl = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=racist";
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    if (data.setup) {
+      joke = `${data.setup} ... ${data.delivery}`;
+    } else {
+      joke = data.joke;
+    }
+    console.log(joke);
+  } catch (error) {
+    console.log("Whoops!", error);
+  }
+}
+getJokes();
