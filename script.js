@@ -132,4 +132,6 @@ async function getJokes() {
     console.log("Whoops!", error);
   }
 }
-getJokes();
+
+// Event listeners
+button.addEventListener("click", getJokes);
